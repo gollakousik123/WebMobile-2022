@@ -4,22 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Activities</title>
    <link rel="stylesheet" href="./css/explore.css">
    <link rel="stylesheet" href="./css/popup.css">
    <link rel="stylesheet" href="./css/">
    <link rel="stylesheet" href="./styles/footer.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
 </head>
-<body>
+<body> 
     <div id="explorenavbar" style="height: 50px; margin-bottom: 50px;">
 		<div id="logodiv" >
 			<a href="index.html">
 				<img id="logo" src="https://playo-website.imgix.net/company/logo1.png?auto=compress,format" alt="playo logo" style="margin-top: 7px;">
 			  </a>
 		</div>
+		<div id="nav2div"> 
+		
+			<p id="myBtn" class=""><a href="/bookVenue.html">Book Venues &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+		
+		</div>
+
+		<div id="nav3div"> 
+		
+			<p id="myBtn" class=""><a href="/blog.html">Blog &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+		
+		</div>
+		<div id="nav4div"> 
+		
+			<p id="myBtn" class=""><a href="/activities.html">Activities &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+		
+		</div>
+
+		<div id="nav5div"> 
+		
+			<p id="myBtn" class=""><a href="/lends.html">Lend</a></p>
+		
+		</div>
 
     </div>
-
+<div class="container">
+<a href="/createActivity.html" class="btn btn-primary " style="float: right !important;">Create</a> 
+</div>
 
 
 <!--    popupwindow      ------------------------------------------------------ -->
@@ -29,16 +56,9 @@
 </div>
 
 <!--  -->
-        <div id="searchbar" style="margin-bottom: 25px;">
-            <input type="text" id="typesearch" placeholder="Type a city" style="border: 1px solid grey; border-top-left-radius: 2px; border-top-right-radius: 2px;">
-            <button id="searchbtn" >Detect</button>
-        </div>
-
-     <div id="citynames" style="margin-bottom: 110px; border: 1px solid rgb(214, 212, 212); padding: 20px; box-sizing: border-box; border-radius: 2px; color: #424242;">
-     <p>All citiies</p>
-     <hr>
-        
-     </div>
+<div class="container">
+	<div id="cards" class="row p-5"></div>
+</div>
 
 	 <div id="footer"></div>
 
@@ -53,501 +73,22 @@
 	let container = document.querySelector("#footer");
 	container.innerHTML = footer();
 
+	var response = await fetch('./database/newClient.json')
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data)
+        return data
+    })
+    
+    console.log(response)
 
-var  city_names=['Adilabad',
-			'Anantapur',
-			'Chittoor',
-			'Kakinada',
-			'Guntur',
-			'Hyderabad',
-			'Karimnagar',
-			'Khammam',
-			'Krishna',
-			'Kurnool',
-			'Mahbubnagar',
-			'Medak',
-			'Nalgonda',
-			'Nizamabad',
-			'Ongole',
-			'Hyderabad',
-			'Srikakulam',
-			'Nellore',
-			'Visakhapatnam',
-			'Vizianagaram',
-			'Warangal',
-			'Eluru',
-			'Kadapa','Anjaw',
-			'Changlang',
-			'East Siang',
-			'Kurung Kumey',
-			'Lohit',
-			'Lower Dibang Valley',
-			'Lower Subansiri',
-			'Papum Pare',
-			'Tawang',
-			'Tirap',
-			'Dibang Valley',
-			'Upper Siang',
-			'Upper Subansiri',
-			'West Kameng',
-			'West Siang','Baksa',
-			'Barpeta',
-			'Bongaigaon',
-			'Cachar',
-			'Chirang',
-			'Darrang',
-			'Dhemaji',
-			'Dima Hasao',
-			'Dhubri',
-			'Dibrugarh',
-			'Goalpara',
-			'Golaghat',
-			'Hailakandi',
-			'Jorhat',
-			'Kamrup',
-			'Kamrup Metropolitan',
-			'Karbi Anglong',
-			'Karimganj',
-			'Kokrajhar',
-			'Lakhimpur',
-			'Marigaon',
-			'Nagaon',
-			'Nalbari',
-			'Sibsagar',
-			'Sonitpur',
-			'Tinsukia',
-			'Udalguri',
-			'Araria',
-			'Arwal',
-			'Aurangabad',
-			'Banka',
-			'Begusarai',
-			'Bhagalpur',
-			'Bhojpur',
-			'Buxar',
-			'Darbhanga',
-			'East Champaran',
-			'Gaya',
-			'Gopalganj',
-			'Jamui',
-			'Jehanabad',
-			'Kaimur',
-			'Katihar',
-			'Khagaria',
-			'Kishanganj',
-			'Lakhisarai',
-			'Madhepura',
-			'Madhubani',
-			'Munger',
-			'Muzaffarpur',
-			'Nalanda',
-			'Nawada',
-			'Patna',
-			'Purnia',
-			'Rohtas',
-			'Saharsa',
-			'Samastipur',
-			'Saran',
-			'Sheikhpura',
-			'Sheohar',
-			'Sitamarhi',
-			'Siwan',
-			'Supaul',
-			'Vaishali',
-			'West Champaran',
-			'Chandigarh','Bastar',
-			'Bijapur',
-			'Bilaspur',
-			'Dantewada',
-			'Dhamtari',
-			'Durg',
-			'Jashpur',
-			'Janjgir-Champa',
-			'Korba',
-			'Koriya',
-			'Kanker',
-			'Kabirdham (Kawardha)',
-			'Mahasamund',
-			'Narayanpur',
-			'Raigarh',
-			'Rajnandgaon',
-			'Raipur',
-			'Surguja','Dadra and Nagar Haveli',
-      'New Delhi','Ahmedabad',
-			'Amreli district',
-			'Anand',
-			'Banaskantha',
-			'Bharuch',
-			'Bhavnagar',
-			'Dahod',
-			'The Dangs',
-			'Gandhinagar',
-			'Jamnagar',
-			'Junagadh',
-			'Kutch',
-			'Kheda',
-			'Mehsana',
-			'Narmada',
-			'Navsari',
-			'Patan',
-			'Panchmahal',
-			'Porbandar',
-			'Rajkot',
-			'Sabarkantha',
-			'Surendranagar',
-			'Surat',
-			'Vyara',
-			'Vadodara',
-			'Valsad','Ambala',
-			'Bhiwani',
-			'Faridabad',
-			'Fatehabad',
-			'Gurgaon',
-			'Hissar',
-			'Jhajjar',
-			'Jind',
-			'Karnal',
-			'Kaithal',
-			'Kurukshetra',
-			'Mahendragarh',
-			'Mewat',
-			'Palwal',
-			'Panchkula',
-			'Panipat',
-			'Rewari',
-			'Rohtak',
-			'Sirsa',
-			'Sonipat',
-			'Yamuna Nagar','Bilaspur',
-			'Chamba',
-			'Hamirpur',
-			'Kangra',
-			'Kinnaur',
-			'Kullu',
-			'Lahaul and Spiti',
-			'Mandi',
-			'Shimla',
-			'Sirmaur',
-			'Solan',
-			'Una','Anantnag',
-			'Badgam',
-			'Bandipora',
-			'Baramulla',
-			'Doda',
-			'Ganderbal',
-			'Jammu',
-			'Kargil',
-			'Kathua',
-			'Kishtwar',
-			'Kupwara',
-			'Kulgam',
-			'Leh',
-			'Poonch',
-			'Pulwama',
-			'Rajauri',
-			'Ramban',
-			'Reasi',
-			'Samba',
-			'Shopian',
-			'Srinagar',
-			'Udhampur','Bokaro',
-			'Chatra',
-			'Deoghar',
-			'Dhanbad',
-			'Dumka',
-			'East Singhbhum',
-			'Garhwa',
-			'Giridih',
-			'Godda',
-			'Gumla',
-			'Hazaribag',
-			'Jamtara',
-			'Khunti',
-			'Koderma',
-			'Latehar',
-			'Lohardaga',
-			'Pakur',
-			'Palamu',
-			'Ramgarh',
-			'Ranchi',
-			'Sahibganj',
-			'Seraikela Kharsawan',
-			'Simdega',
-			'West Singhbhum','Bagalkot',
-			'Bangalore Rural',
-			'Bangalore Urban',
-			'Belgaum',
-			'Bellary',
-			'Bidar',
-			'Bijapur',
-			'Chamarajnagar',
-			'Chikkamagaluru',
-			'Chikkaballapur',
-			'Chitradurga',
-			'Davanagere',
-			'Dharwad',
-			'Dakshina Kannada',
-			'Gadag',
-			'Gulbarga',
-			'Hassan',
-			'Haveri district',
-			'Kodagu',
-			'Kolar',
-			'Koppal',
-			'Mandya',
-			'Mysore',
-			'Raichur',
-			'Shimoga',
-			'Tumkur',
-			'Udupi',
-			'Uttara Kannada',
-			'Ramanagara',
-			'Yadgir','Alappuzha',
-			'Ernakulam',
-			'Idukki',
-			'Kannur',
-			'Kasaragod',
-			'Kollam',
-			'Kottayam',
-			'Kozhikode',
-			'Malappuram',
-			'Palakkad',
-			'Pathanamthitta',
-			'Thrissur',
-			'Thiruvananthapuram',
-			'Wayanad','Alirajpur',
-			'Anuppur',
-			'Ashok Nagar',
-			'Balaghat',
-			'Barwani',
-			'Betul',
-			'Bhind',
-			'Bhopal',
-			'Burhanpur',
-			'Chhatarpur',
-			'Chhindwara',
-			'Damoh',
-			'Datia',
-			'Dewas',
-			'Dhar',
-			'Dindori',
-			'Guna',
-			'Gwalior',
-			'Harda',
-			'Hoshangabad',
-			'Indore',
-			'Jabalpur',
-			'Jhabua',
-			'Katni',
-			'Khandwa (East Nimar)',
-			'Khargone (West Nimar)',
-			'Mandla',
-			'Mandsaur',
-			'Morena',
-			'Narsinghpur',
-			'Neemuch',
-			'Panna',
-			'Rewa',
-			'Rajgarh',
-			'Ratlam',
-			'Raisen',
-			'Sagar',
-			'Satna',
-			'Sehore',
-			'Seoni',
-			'Shahdol',
-			'Shajapur',
-			'Sheopur',
-			'Shivpuri',
-			'Sidhi',
-			'Singrauli',
-			'Tikamgarh',
-			'Ujjain',
-			'Umaria',
-			'Vidisha','Ahmednagar',
-			'Akola',
-			'Amravati',
-			'Aurangabad',
-			'Bhandara',
-			'Beed',
-			'Buldhana',
-			'Chandrapur',
-			'Dhule',
-			'Gadchiroli',
-			'Gondia',
-			'Hingoli',
-			'Jalgaon',
-			'Jalna',
-			'Kolhapur',
-			'Latur',
-			'Mumbai City',
-			'Mumbai suburban',
-			'Nandurbar',
-			'Nanded',
-			'Nagpur',
-			'Nashik',
-			'Osmanabad',
-			'Parbhani',
-			'Pune',
-			'Raigad',
-			'Ratnagiri',
-			'Sindhudurg',
-			'Sangli',
-			'Solapur',
-			'Satara',
-			'Thane',
-			'Wardha',
-			'Washim',
-			'Yavatmal',
-			'Amritsar',
-			'Barnala',
-			'Bathinda',
-			'Firozpur',
-			'Faridkot',
-			'Fatehgarh Sahib',
-			'Fazilka',
-			'Gurdaspur',
-			'Hoshiarpur',
-			'Jalandhar',
-			'Kapurthala',
-			'Ludhiana',
-			'Mansa',
-			'Moga',
-			'Sri Muktsar Sahib',
-			'Pathankot',
-			'Patiala',
-			'Rupnagar',
-			'Ajitgarh (Mohali)',
-			'Sangrur',
-			'Nawanshahr',
-			'Tarn Taran','Ajmer',
-			'Alwar',
-			'Bikaner',
-			'Barmer',
-			'Banswara',
-			'Bharatpur',
-			'Baran',
-			'Bundi',
-			'Bhilwara',
-			'Churu',
-			'Chittorgarh',
-			'Dausa',
-			'Dholpur',
-			'Dungapur',
-			'Ganganagar',
-			'Hanumangarh',
-			'Jhunjhunu',
-			'Jalore',
-			'Jodhpur',
-			'Jaipur',
-			'Jaisalmer',
-			'Jhalawar',
-			'Karauli',
-			'Kota',
-			'Nagaur',
-			'Pali',
-			'Pratapgarh',
-			'Rajsamand',
-			'Sikar',
-			'Sawai Madhopur',
-			'Sirohi',
-			'Tonk',
-			'Udaipur','Agra',
-			'Allahabad',
-			'Aligarh',
-			'Ambedkar Nagar',
-			'Auraiya',
-			'Azamgarh',
-			'Barabanki',
-			'Budaun',
-			'Bagpat',
-			'Bahraich',
-			'Bijnor',
-			'Ballia',
-			'Banda',
-			'Balrampur',
-			'Bareilly',
-			'Basti',
-			'Bulandshahr',
-			'Chandauli',
-			'Chhatrapati Shahuji Maharaj Nagar',
-			'Chitrakoot',
-			'Deoria',
-			'Etah',
-			'Kanshi Ram Nagar',
-			'Etawah',
-			'Firozabad',
-			'Farrukhabad',
-			'Fatehpur',
-			'Faizabad',
-			'Gautam Buddh Nagar',
-			'Gonda',
-			'Ghazipur',
-			'Gorakhpur',
-			'Ghaziabad',
-			'Hamirpur',
-			'Hardoi',
-			'Mahamaya Nagar',
-			'Jhansi',
-			'Jalaun',
-			'Jyotiba Phule Nagar',
-			'Jaunpur district',
-			'Ramabai Nagar (Kanpur Dehat)',
-			'Kannauj',
-			'Kanpur',
-			'Kaushambi',
-			'Kushinagar',
-			'Lalitpur',
-			'Lakhimpur Kheri',
-			'Lucknow',
-			'Mau',
-			'Meerut',
-			'Maharajganj',
-			'Mahoba',
-			'Mirzapur',
-			'Moradabad',
-			'Mainpuri',
-			'Mathura',
-			'Muzaffarnagar',
-			'Panchsheel Nagar district (Hapur)',
-			'Pilibhit',
-			'Shamli',
-			'Pratapgarh',
-			'Rampur',
-			'Raebareli',
-			'Saharanpur',
-			'Sitapur',
-			'Shahjahanpur',
-			'Sant Kabir Nagar',
-			'Siddharthnagar',
-			'Sonbhadra',
-			'Sant Ravidas Nagar',
-			'Sultanpur',
-			'Shravasti',
-			'Unnao',
-			'Varanasi','Almora',
-			'Bageshwar',
-			'Chamoli',
-			'Champawat',
-			'Dehradun',
-			'Haridwar',
-			'Nainital',
-			'Pauri Garhwal',
-			'Pithoragarh',
-			'Rudraprayag',
-			'Tehri Garhwal',
-			'Udham Singh Nagar',
-			'Uttarkashi'];
-      city_names.sort((a,b)=>a-b);
-      //console.log(city_names)
+	var cards = document.getElementById("cards");
+	for (var i = 0; i < response.length; i++) {
+		cards.innerHTML += '<div class="col-lg-4 mb-4"><div class="card" style="width: 18rem;"><img class="card-img-top" src='+response[i].eventBackgroundImage+'><div class="card-body"><h5 class="card-title">'+response[i].eventName+'</h5><p class="card-text">Location: '+response[i].location+'<br> Event Date: '+response[i].eventDate+'<br>Event Time: '+response[i].eventTime+'</p></div></div></div><br>';
+	}
 
-     for(var i=0; i<city_names.length; i++){
-        var showcities=document.querySelector("#citynames");
-     var p=document.createElement("p");
-     var line=document.createElement("hr");
-         p.innerHTML=city_names[i];
-         showcities.append(p,line);
-     }
+
+
 
 	//  popupstartshere-----------------------
 // var modal = document.getElementById("myModal");
@@ -683,4 +224,26 @@ document.querySelector("#searchbtn").addEventListener("click",()=>{
 
 
 
+
+
+
+
+
     </script>
+<!-- script start -->
+<script type="module">
+    import navbar from "./components/navbar.js"
+    import footer from "./components/footer.js"
+
+    let container = document.querySelector("#footer");
+    container.innerHTML = footer();
+
+    let navbar_container = document.getElementById("navbar_container");
+    navbar_container.innerHTML = navbar();
+
+</script>
+<!-- script end -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

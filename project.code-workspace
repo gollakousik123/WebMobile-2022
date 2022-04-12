@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../Web/Test"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "WebMobile-2022"
+	}
+}
