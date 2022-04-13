@@ -3,7 +3,7 @@ function navbarsidebar(){
     return `  <div id="navbox">
 
     <div id="navbox_img">
-       <a href="index.html"> <img src="https://playo-website.gumlet.net/logo/playo-logo-header-website.png?auto=compress,format&h=100" height="100%" width="100%"/></a>
+       <a href="index.html"> <img src="images/logo.png" height="100%" width="100%"/></a>
     </div>
     
     <div id="navdiv">
@@ -14,9 +14,9 @@ function navbarsidebar(){
         <li>
         <div id="mainmenu">
         <div id="mainm">
-        <div id="top1"><img  src="https://playo-website.gumlet.net/playo_functional/Icons/user_blank.svg" height="37"/></div>
+        <div id="top1"><img  src="images/user_blank.png" height="37"/></div>
         <div><p id="mobnum">9021553726</p></div>
-        <div id="down"><img src="https://playo-website.gumlet.net/playo_functional/Icons/arrow_light.svg" height="10" /></div>
+        <div id="down"><img src="images/arrow_light.png" height="10" /></div>
        </div>
         <div id="menu">
         <ul type="none">
@@ -42,7 +42,7 @@ function navbarsidebar(){
 
 
     <div id="verticalbox1" >
-        <img  src="https://playo-website.gumlet.net/playo_functional/Icons/user_blank.svg" >
+        <img  src="images/user_blank.png" >
         <p id="mob">9021553726</p>
        <div id="line"></div>
 
@@ -56,7 +56,7 @@ function navbarsidebar(){
         <p>My Booking</p>
     </div></a>
     <a href="login_feedback.html" > <div id="profile" class="feedback1">
-        <img src="https://playo-website.gumlet.net/icons/back-arrow.svg" />
+        <img src="images/backarrow.png" />
         <p style="color:red">Feedback</p>
     </div></a>
 </div>

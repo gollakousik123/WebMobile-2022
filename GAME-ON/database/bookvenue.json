@@ -5,7 +5,7 @@
       "lat": 12.9341796,
       "lng": 77.6101537,
       "location": "Bangalore",
-      "imgUrl" : "https://playo.gumlet.io/SPORTSALLEY/SouthUnitedFootballClub1640172478587.jpeg?auto=compress%2Cformat&fit=clip&q=30&h=0.4&dpr=1&w=1946",
+      "img" : "images/SouthUnitedFootballClub1640172478587.jpg",
       "filter_by": [
         "Pool"
       ],
@@ -18,7 +18,7 @@
       "lng": 77.615578,
       "rating": 5,
       "location": "Bangalore",
-      "imgUrl" : "https://playo.gumlet.io/TIENTO/tientosports6.jpg?auto=compress%2Cformat&fit=clip&q=30&h=0.4&dpr=1&w=1946",
+      "img" : "images/tientosports6.png",
       "filter_by": [
         "Football"
       ],
