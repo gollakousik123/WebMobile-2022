@@ -11,7 +11,7 @@ function footer()
         </div>
         <div id="playstore">
             <a href="">
-                <img src="images/android" >
+                <img src="images/android.png" >
             </a>
             <a href="">
                 <img src="images/ios.png" >
