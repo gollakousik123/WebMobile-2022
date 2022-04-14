@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/footer.css">
-    <script src="https://unpkg.com/@paypal/paypal-js@5.0.3/dist/iife/paypal-js.min.js"></script>
-    <script
-        src="https://www.paypal.com/sdk/js?client-id=ASJ-OCs5NRAfcdn4fuUCnSfNVoCDHzDLhIeS949wC4HEb4fFUPhdbeaH-cihQ9q7LDU33HZov-1_TQTG"></script>
-    <title>Playo: Pay with paypal</title>
-
+    <title>Game-On: Pay with razor pay</title>
     <style>
         body {
             /* display: flex;
@@ -250,7 +246,6 @@
 </head>
 
 <body>
-
     <div id="outermost_container">
 
         <!-- navbar start -->
@@ -259,16 +254,13 @@
             <div id="explorenavbar">
 
                 <div id="logodiv">
-                    <img id="logo" src="images/logo.png"
-                        alt="playo logo">
+                    <img id="logo" src="logo.png" alt="logo">
                 </div>
 
                 <div id="nav2div">
-                    <img id="pplogo" src="images/user_blank.png"
-                        alt="">
+                    <img id="pplogo" src="images/user_blank.png" alt="">
                     <p id="myBtn" class="loginp">Login/Signup</p>
-                    <img id="dropdownarrow"
-                        src="images/arrow_light.png" alt="arrow">
+                    <img id="dropdownarrow" src="images/arrow_light.png" alt="arrow">
                 </div>
 
 
@@ -277,13 +269,10 @@
                 <div id="modal_container">
 
                     <div id="modal">
-                        <img id="close" src="https://playo-website.gumlet.net/playo_functional/Icons/closeButton.svg"
-                            alt="">
+                        <img id="close" src="images/closeButton.png" alt="">
 
                         <div id="login_left_div">
-                            <img width="100%"
-                                src="https://playo-website.gumlet.net/icons/login-graphics.png?auto=compress,format"
-                                alt="">
+                            <img width="100%" src="images/login-graphics.png?auto=compress,format" alt="">
                         </div>
                         <div id="login_right_div">
                             <p id="entermobile">Enter Your Mobile Number</p>
@@ -295,9 +284,7 @@
                                             <div id="selectCallingCode">
                                                 <span style="font-size: 14px; color: #424242;" id="rem1">IND</span>
                                                 <span style="font-size: 14px; color: #424242;" id="rem2">+91</span>
-                                                <img id="countryDrop"
-                                                    src="https://s3.ap-south-1.amazonaws.com/playo-website/booking/selectCountry.svg"
-                                                    alt="dropdown">
+                                                <img id="countryDrop" src="images/selectCountry.svg" alt="dropdown">
                                             </div>
                                         </span>
                                     </div>
@@ -320,14 +307,9 @@
         </div>
         <!-- navbar end -->
 
-
-
-        <div id="rzp-button1">Pay with paypal</div>
-        <script>
-            window.paypalLoadScript({ "client-id": "AfAvGABaQuUeU54YKPFS4vVmO9zVVp_4e9EnlRIYoBYgzTjwm-PQYSCL2FbjGISGFpPYFNjfGSYOfHBh" }).then((paypal) => {
-                paypal.Buttons().render("#rzp-button1");
-            });
-        </script>
+        <div id="payDiv">
+            <button id="rzp-button1">Pay with Razor pay</button>
+        </div>
 
         <div id="footer"></div>
 
@@ -335,3 +317,166 @@
 </body>
 
 </html>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script></script>
+<script type="module">
+
+
+
+
+
+
+    //Login and pop up full functionalities start
+
+    document.querySelector("#logo").addEventListener("click", () => {
+        window.location.href = "index.html";
+    })
+
+
+    // navbar popup functionality
+    document.querySelector("#giveOTP").style.visibility = "hidden";
+
+    const open = document.getElementById("nav2div");
+    const modal_container = document.getElementById("modal_container");
+    const close = document.getElementById("close");
+
+    open.addEventListener("click", () => {
+        modal_container.classList.add("show")
+    });
+
+    close.addEventListener("click", () => {
+        modal_container.classList.remove("show")
+    });
+
+
+
+
+    //If user is logged in 
+    login()
+
+    function login() {
+        console.log("test")
+        let loginStatus = localStorage.getItem("login")
+        console.log(typeof (loginStatus))
+        if (loginStatus === "true") {
+            let ph = localStorage.getItem("mobileNumber");
+            console.log(ph)
+            document.querySelector("#myBtn").textContent = ph;
+            open.addEventListener("click", () => {
+                modal_container.classList.remove("show")
+                window.location.href = "login_profile.html";
+            })
+
+        }
+        else {
+            return false;
+        }
+
+    }
+
+
+
+    //When user add mobile number to it
+    document.querySelector("#sendOTP").addEventListener("click", () => {
+        let mobNo = document.querySelector("#input").value;
+        if (mobNo.length != 10) {
+            alert("Please Give correct Mobile Number");
+        }
+        else {
+            localStorage.setItem("mobileNumber", mobNo);
+            // modal_container.style.visibility = "hidden";
+            // document.querySelector(".loginp")
+            document.querySelector("#entermobile").textContent = `We have sent an OTP to ${mobNo}`;
+            document.querySelector("#rem1").style.visibility = "hidden";
+            document.querySelector("#rem2").style.visibility = "hidden";
+            document.querySelector("#countryDrop").style.visibility = "hidden";
+            document.querySelector("#input").value = null;
+            document.querySelector("#input").placeholder = "Enter OTP"
+            document.querySelector("input").style.textAlign = "center";
+            document.querySelector("#sendOTP").style.visibility = "hidden";
+            document.querySelector("#giveOTP").style.visibility = "visible";
+
+            document.querySelector("#giveOTP").addEventListener("click", () => {
+
+                let otp = document.querySelector("input").value;
+                if (otp == "123456") {
+                    // alert("success");
+                    modal_container.classList.remove("show")
+                    document.querySelector("#myBtn").textContent = mobNo;
+                    localStorage.setItem("login", true);
+
+
+                    open.addEventListener("click", () => {
+                        modal_container.classList.remove("show")
+                        window.location.href = "login_profile.html";
+                        login()
+
+                    })
+
+
+                }
+                else {
+                    alert("Wrong OTP");
+                    document.querySelector("#entermobile").textContent = `Enter Your mobile number`;
+                    document.querySelector("#rem1").style.visibility = "visible";
+                    document.querySelector("#rem2").style.visibility = "visible";
+                    document.querySelector("#countryDrop").style.visibility = "visible";
+                    document.querySelector("#input").value = null;
+                    document.querySelector("#input").placeholder = "Enter Mobile Number"
+                    document.querySelector("#sendOTP").style.visibility = "visible";
+                    document.querySelector("#giveOTP").style.visibility = "hidden";
+
+                }
+
+            })
+
+        }
+    })
+
+    //Login and pop up full functionalities end
+
+
+
+
+
+
+
+
+
+
+
+    // importing footer part
+    import footer from "./components/footer.js";
+    let footer_div = document.getElementById("footer");
+    footer_div.innerHTML = footer();
+
+
+
+
+
+    let price = localStorage.getItem("finalPrice") * 100
+
+
+    var options = {
+        "key": "rzp_test_vUKRcpG1a37CW2", // Enter the Key ID generated from the Dashboard
+        "amount": price, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Game-On",
+        "description": "Test Payment",
+        "image": "",
+        // "order_id": "order_Ef80WJDPBmAeNt", //Pass the `id` obtained in the previous step
+        // "account_id": "acc_Ef7ArAsdU5t0XL",
+        "handler": function (response) {
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature)
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button1').onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>

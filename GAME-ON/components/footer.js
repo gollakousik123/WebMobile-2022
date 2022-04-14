@@ -2,8 +2,7 @@
 // yo can find css for these footer file here="style/footer.css".
 // you have to simply link that stylesheet in your heading part
 // for these file make one footer with id="footer" and make innerHtml for imported function
-function footer()
-{
+function footer() {
     return `<div id="infooter">
     <div id="div1">
         <div id="weblogo">
@@ -29,9 +28,6 @@ function footer()
     </div>
     <div id="div2">
         <a href="about.html"><p>About Us</p></a>
-        <a href="partner.html"><p>Partner With Us</p></a>
-        <a href="brandact.html"><p>Brand Activations</p></a>
-        <a href="corporate.html"><p>Corporate Offerings</p></a>
         <a href="contact.html"><p>contact Us</p></a>
     </div>
     <div id="div3">

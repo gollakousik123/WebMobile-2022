@@ -1,69 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/addproduct.css">
-  </head>
-  <body>
-      <div id="titlebar">ADMIN PAGE</div>
-    <!-- to add items into the server. -->
-    <div id="main">
-      <div id="add">
-        <input type="img" placeholder="img" id="image" />
-        <input type="text" placeholder="city name" id="city" />
-        <input type="text" placeholder="name" id="name" required />
-        <input
-          type="text"
-          placeholder="location name"
-          id="location-name"
-          required
-        />
-        <input type="text" placeholder="timing" id="timing" />
-        <input type="text" placeholder="image2" id="image2" />
-        <input type="text" placeholder="overview" id="overview" />
-        <input type="text" placeholder="goals" id="goals" />
-        <input type="text" placeholder="services" id="services" />
-        <input type="text" placeholder="infrastructure" id="infra" />
-        <input type="text" placeholder="address" id="address" />
-        <!-- <input type="number" placeholder="id" id="id" required> -->
-        <br><br><br>
-        <button onclick="addproduct()" id="addbtn">Add Data</button>
 
-      </div>
-      
-      <!-- to update the server -->
-      <div id="update">
-        <input type="number" placeholder="id" id="id" required/>
-        <input type="img" placeholder="img" id="uimage" />
-        <input type="text" placeholder="city name" id="ucity" />
-        <input type="text" placeholder="name" id="uname" required />
-        <input
-          type="text"
-          placeholder="location name"
-          id="ulocation-name"
-          required
-        />
-        <input type="text" placeholder="timing" id="utiming"  />
-        <input type="text" placeholder="image2" id="uimage2" />
-        <input type="text" placeholder="overview" id="uoverview" />
-        <input type="text" placeholder="goals" id="ugoals" />
-        <input type="text" placeholder="services" id="uservices" />
-        <input type="text" placeholder="infrastructure" id="uinfra" />
-        <input type="text" placeholder="address" id="uaddress" />
-        <!-- <input type="number" placeholder="id" id="id" required> -->
-        <br><br>
-        <button onclick="update()">Update Data</button>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/addproduct.css">
+</head>
+
+<body>
+  <div id="titlebar">ADMIN PAGE</div>
+  <!-- to add items into the server. -->
+  <div id="main">
+    <div id="add">
+      <input type="img" placeholder="img" id="image" />
+      <input type="text" placeholder="city name" id="city" />
+      <input type="text" placeholder="name" id="name" required />
+      <input type="text" placeholder="location name" id="location-name" required />
+      <input type="text" placeholder="timing" id="timing" />
+      <input type="text" placeholder="image2" id="image2" />
+      <input type="text" placeholder="overview" id="overview" />
+      <input type="text" placeholder="goals" id="goals" />
+      <input type="text" placeholder="services" id="services" />
+      <input type="text" placeholder="infrastructure" id="infra" />
+      <input type="text" placeholder="address" id="address" />
+      <!-- <input type="number" placeholder="id" id="id" required> -->
+      <br><br><br>
+      <button onclick="addproduct()" id="addbtn">Add Data</button>
+
     </div>
 
-    <div id="con"></div>
-    <br /><br />
+    <!-- to update the server -->
+    <div id="update">
+      <input type="number" placeholder="id" id="id" required />
+      <input type="img" placeholder="img" id="uimage" />
+      <input type="text" placeholder="city name" id="ucity" />
+      <input type="text" placeholder="name" id="uname" required />
+      <input type="text" placeholder="location name" id="ulocation-name" required />
+      <input type="text" placeholder="timing" id="utiming" />
+      <input type="text" placeholder="image2" id="uimage2" />
+      <input type="text" placeholder="overview" id="uoverview" />
+      <input type="text" placeholder="goals" id="ugoals" />
+      <input type="text" placeholder="services" id="uservices" />
+      <input type="text" placeholder="infrastructure" id="uinfra" />
+      <input type="text" placeholder="address" id="uaddress" />
+      <!-- <input type="number" placeholder="id" id="id" required> -->
+      <br><br>
+      <button onclick="update()">Update Data</button>
+    </div>
+  </div>
 
-    <!-- use this input to go to explore.html -->
-    <!-- <div>
+  <div id="con"></div>
+  <br /><br />
+
+  <!-- use this input to go to explore.html -->
+  <!-- <div>
       <input
         type="text"
         id="cities"
@@ -72,13 +64,14 @@
       />
       <button onclick="city()">Detect</button>
     </div> -->
-  </body>
+</body>
+
 </html>
 <script>
   let con = document.getElementById("con");
   async function add() {
     try {
-      let url = `http://127.0.0.1:5000/playo/cities`;
+      let url = `http://127.0.0.1:5000/gameon/cities`;
 
       let response = await fetch(url, {
         method: "GET",
@@ -127,7 +120,7 @@
 
       data = JSON.stringify(data);
 
-      let response = await fetch("http://127.0.0.1:5000/playo/cities", {
+      let response = await fetch("http://127.0.0.1:5000/gameon/cities", {
         method: "POST",
         body: data,
         headers: {
@@ -143,9 +136,9 @@
     }
   }
 
-  
-  
-  
+
+
+
   // update data function
 
   async function update() {
@@ -164,7 +157,7 @@
         address: document.getElementById("uaddress").value,
       };
       let id = document.getElementById("id").value;
-      let response = await fetch(`http://127.0.0.1:5000/playo/cities/${id}`, {
+      let response = await fetch(`http://127.0.0.1:5000/gameon/cities/${id}`, {
         method: "PUT",
 
         body: JSON.stringify(update),

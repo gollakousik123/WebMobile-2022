@@ -8,7 +8,7 @@ function navbar() {
                     <li><a href="venues.html"><span class="link-btn">Book Venues</span></a></li>
                     <li><a href="activities.html"><span class="link-btn">Activites</span></a></li>
                     <li><a href="blog.html"><span class="link-btn">Blog</span></a></li>
-                    <li><a href="lend.html"><span class="link-btn">Lend</span></a></li>
+                    <li><a href="lends.html"><span class="link-btn">Lend</span></a></li>
                 </ul>
             </div>`;
 }

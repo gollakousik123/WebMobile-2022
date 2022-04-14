@@ -1,29 +1,29 @@
 
 
-   
-    
 
-    
-    
+
+
+
+
 //Working on quotes api call==================>
 
 
 
 
 
-    
-    let quoteUrl = "https://bodybuilding-quotes1.p.rapidapi.com/random-quote";
-    fetch(quoteUrl, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "bodybuilding-quotes1.p.rapidapi.com",
-		"x-rapidapi-key": "a867a75115msh062cacb248defc3p1037f9jsnb868cbef939c"
-	}
-    })
-    .then((res)=>{
+
+let quoteUrl = "https://api-basketball.p.rapidapi.com/random-quote";
+fetch(quoteUrl, {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "api-basketball.p.rapidapi.com",
+        "x-rapidapi-key": "d92465de49msh478dee0ab72488cp1ab5f4jsn3a3a3abb0d2e"
+    }
+})
+    .then((res) => {
         return res.json()
     })
-    .then((res)=>{
+    .then((res) => {
         console.log(res);
         let quote = document.querySelector("#quote");
         let value = res.quote;
@@ -43,16 +43,16 @@
 
 
 
-    document.querySelector("#first-blog").addEventListener("click", ()=>{
-       
-        window.open("https://blog.playo.co/humansofplayo-how-to-submit-a-story/" , '_blank');
-    })
+document.querySelector("#first-blog").addEventListener("click", () => {
 
-    document.querySelector("#sec-blog").addEventListener("click", ()=>{
-        
-        window.open("https://blog.playo.co/guidelines-to-playsafe-in-the-times-of-covid-19/" , '_blank');
+    window.open("https://blog.playo.co/humansofplayo-how-to-submit-a-story/", '_blank');
+})
 
-    })
+document.querySelector("#sec-blog").addEventListener("click", () => {
+
+    window.open("https://blog.playo.co/guidelines-to-playsafe-in-the-times-of-covid-19/", '_blank');
+
+})
 
 
 // By Clicking static blog content End==================>
@@ -63,51 +63,28 @@
 
 //Api call for Sports news content start==================>
 
-    import appendNews from "../components/appendnews.js";
-   // import apiCall from "../components/apicall.js";
+import appendNews from "../components/appendnews.js";
+import apiCall from "../components/apicall.js";
 
-//    function fetchNews(){
+function fetchNews() {
 
-//      //let apiKey_blog = "b140754e118c4b63a8e580772d4446a1";
-//     //let bloglink = `https://newsapi.org/v2/top-headlines?country=in&category=sports&pageSize=10&apiKey=${apiKey_blog}`;
-//     // let response = apiCall(bloglink);
-//     // response.then((res)=>{
-//     //     console.log(res.articles);
-//     //     let appendlocation = document.querySelector(".dynamic-news");
-//     //     appendNews(res.articles, appendlocation);
-
-//     // })
-//     // .catch((e)=>{
-//     //     console.log(e);
-//     // })
-
-//     }
-
-   
-
-    //Edit 
-    function fetchNews(){
-    let apiKey_blog = "b140754e118c4b63a8e580772d4446a1";
-    let bloglink = `https://newsapi.org/v2/top-headlines?country=in&category=sports&pageSize=10&apiKey=${process.env.BLOG_API_KEY}`;
-    fetch(bloglink)
-    .then((res)=>{
-        return res.json();
-    })
-    .then((res)=>{
+    let apiKey_blog = "04632fefaf774c0e99a5884e0fd734b2";
+    let bloglink = `https://newsapi.org/v2/top-headlines?country=in&category=sports&pageSize=10&apiKey=${apiKey_blog}`;
+    let response = apiCall(bloglink);
+    response.then((res) => {
+        console.log(res.articles);
         let appendlocation = document.querySelector(".dynamic-news");
         appendNews(res.articles, appendlocation);
+
     })
-    .catch((e)=>{
-        console.log(e);
-    })    
-   }
-   
-   fetchNews()
+        .catch((e) => {
+            console.log(e);
+        })
 
+}
 
+fetchNews()
 
-
-    
 
 
 // Api call for Sports news content end==================>
@@ -115,34 +92,31 @@
 
 //Api call for health news start==================>
 
-    document.querySelector("#health-news").addEventListener("click", ()=>{
-        console.log("Test")
+document.querySelector("#health-news").addEventListener("click", () => {
+    console.log("Test")
 
-        document.querySelector("#sports-news").style.backgroundColor = "#F3F3F2";
-        document.querySelector("#sports-news").style.borderBottom = "none";
-        document.querySelector("#health-news").style.backgroundColor = "white";
-        document.querySelector("#health-news").style.borderBottom = "3px solid #548A2F"
-     
+    document.querySelector("#sports-news").style.backgroundColor = "#F3F3F2";
+    document.querySelector("#sports-news").style.borderBottom = "none";
+    document.querySelector("#health-news").style.backgroundColor = "white";
+    document.querySelector("#health-news").style.borderBottom = "3px solid #548A2F"
 
 
-       
-        let apiKey_health = "b140754e118c4b63a8e580772d4446a1";
-        let bloglink_health = `https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=12&apiKey=${process.env.BLOG_API_KEY}`;
-        
-        fetch(bloglink_health)
-        .then((res)=>{
-            return res.json();
-        })
-        .then((res)=>{
-            let appendlocation = document.querySelector(".dynamic-news");
-            appendNews(res.articles, appendlocation);
-        })
-        .catch((e)=>{
-            console.log(e);
-            
-        })
 
+
+    let apiKey_health = "b140754e118c4b63a8e580772d4446a1";
+    let bloglink_health = `https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=12&apiKey=${apiKey_health}`;
+    let response_health = apiCall(bloglink_health);
+    response_health.then((res) => {
+        console.log(res.articles);
+        let appendlocation = document.querySelector(".dynamic-news");
+        appendNews(res.articles, appendlocation);
     })
+        .catch((e) => {
+            console.log(e);
+
+        })
+
+})
 
 
 
@@ -152,31 +126,30 @@
 
 //If user click one sports button start ========================>
 
-    document.querySelector("#sports-news").addEventListener("click", ()=>{
+document.querySelector("#sports-news").addEventListener("click", () => {
 
-        document.querySelector("#sports-news").style.backgroundColor = "white";
-        document.querySelector("#sports-news").style.borderBottom = "3px solid #548A2F"
-        document.querySelector("#health-news").style.backgroundColor = "#F3F3F2";
-        document.querySelector("#health-news").style.borderBottom = "none";
+    document.querySelector("#sports-news").style.backgroundColor = "white";
+    document.querySelector("#sports-news").style.borderBottom = "3px solid #548A2F"
+    document.querySelector("#health-news").style.backgroundColor = "#F3F3F2";
+    document.querySelector("#health-news").style.borderBottom = "none";
 
-        //Api work ==>
-        let apiKey_blog = "b140754e118c4b63a8e580772d4446a1";
-        let bloglink = `https://newsapi.org/v2/top-headlines?country=in&category=sports&pageSize=10&apiKey=${process.env.BLOG_API_KEY}`;
-        fetch(bloglink)
-        .then((res)=>{
-            return res.json();
-        })
-        .then((res)=>{
-            let appendlocation = document.querySelector(".dynamic-news");
-            appendNews(res.articles, appendlocation);
-        })
-        .catch((e)=>{
+    //Api work ==>
+    let apiKey_blog = "b140754e118c4b63a8e580772d4446a1";
+    let bloglink = `https://newsapi.org/v2/top-headlines?country=in&category=sports&pageSize=10&apiKey=${apiKey_blog}`;
+    let response = apiCall(bloglink);
+    response.then((res) => {
+        console.log(res.articles);
+        let appendlocation = document.querySelector(".dynamic-news");
+        appendNews(res.articles, appendlocation);
+
+    })
+        .catch((e) => {
             console.log(e);
         })
 
-        fetchNews()
+    fetchNews()
 
-    })
+})
 
 
 //If user click one sports button end==========================>
@@ -185,43 +158,39 @@
 //Search Feature in news api start================================>
 
 
-    document.querySelector("#search").addEventListener('keypress' , (event)=>{
-        //console.log(event);
-        let value = document.querySelector("#search").value;
+document.querySelector("#search").addEventListener('keypress', (event) => {
+    //console.log(event);
+    let value = document.querySelector("#search").value;
 
-        if(value == "" || value == undefined || value == null){
-            fetchNews()
-            return false;
-        }
-        
-        if(event.key == "Enter"){
-       
+    if (value == "" || value == undefined || value == null) {
+        fetchNews()
+        return false;
+    }
+
+    if (event.key == "Enter") {
+
 
         //code for search feature
         //https://newsapi.org/v2/everything?q=Apple&from=2022-01-18&sortBy=popularity&apiKey=API_KEY
-     
+
         console.log("test")
         let search_key = "b140754e118c4b63a8e580772d4446a1";
-        let search_link = `https://newsapi.org/v2/everything?q=${value}&from=2022-01-18&sortBy=popularity&pageSize=10&language=en&apiKey=${process.env.BLOG_API_KEY}`;
-      
-
-        fetch(search_link)
-        .then((res)=>{
-            return res.json();
-        })
-        .then((res)=>{
+        let search_link = `https://newsapi.org/v2/everything?q=${value}&from=2022-03-13&sortBy=popularity&pageSize=10&language=en&apiKey=${search_key}`;
+        let response_search = apiCall(search_link);
+        response_search.then((res) => {
+            console.log(res.articles);
             let appendlocation = document.querySelector(".dynamic-news");
             appendNews(res.articles, appendlocation);
         })
-        .catch((e)=>{
-            console.log(e);
-        })
+            .catch((e) => {
+                console.log(e);
+            })
 
         console.log("Test")
 
-        }
+    }
 
-    });
+});
 
 
 
