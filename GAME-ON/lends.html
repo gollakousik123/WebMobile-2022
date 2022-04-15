@@ -1,197 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities</title>
-    <link rel="stylesheet" href="./css/explore.css">
-    <link rel="stylesheet" href="./css/popup.css">
-    <link rel="stylesheet" href="./css/">
-    <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- 
-  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities</title>
+  <link rel="stylesheet" href="./css/explore.css">
+  <link rel="stylesheet" href="./css/popup.css">
+  <link rel="stylesheet" href="./css/">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
   <style>
-    .card-img-top{
+    .card-img-top {
       height: 260px !important;
     }
   </style>
 
 </head>
-<body> 
-    <div id="explorenavbar" style="height: 50px; margin-bottom: 50px;">
-		<div id="logodiv" >
-			<a href="index.html">
-				<img id="logo" src="https://playo-website.imgix.net/company/logo1.png?auto=compress,format" alt="playo logo" style="margin-top: 7px;">
-			  </a>
-		</div>
-		<div id="nav2div"> 
-		
-			<p id="myBtn" class=""><a href="/bookVenue.html">Book Venues &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-		
-		</div>
 
-		<div id="nav3div"> 
-		
-			<p id="myBtn" class=""><a href="/blog.html">Blog &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-		
-		</div>
-		<div id="nav4div"> 
-		
-			<p id="myBtn" class=""><a href="/activities.html">Activities &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-		
-		</div>
+<body>
+  <div id="explorenavbar" style="height: 50px; margin-bottom: 50px;">
+    <div id="logodiv">
+      <a href="index.html">
+        <img id="logo" src="images/logo.png?auto=compress,format" alt="logo" style="margin-top: 7px;">
+      </a>
+    </div>
+    <div id="nav2div">
 
-		<div id="nav5div"> 
-		
-			<p id="myBtn" class=""><a href="/lends.html">Lend</a></p>
-		
-		</div>
+      <p id="myBtn" class=""><a href="bookVenue.html">Book Venues &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
 
     </div>
-<div class="container">
-<a href="/createLend.html" class="btn btn-primary " style="float: right !important;">Create</a> 
-</div>
+
+    <div id="nav3div">
+
+      <p id="myBtn" class=""><a href="blog.html">Blog &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+
+    </div>
+    <div id="nav4div">
+
+      <p id="myBtn" class=""><a href="activities.html">Activities &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+
+    </div>
+
+    <div id="nav5div">
+
+      <p id="myBtn" class=""><a href="lends.html">Lend</a></p>
+
+    </div>
+
+  </div>
+  <div class="container">
+    <a href="/createLend.html" class="btn btn-primary " style="float: right !important;">Create</a>
+  </div>
 
 
-<!--    popupwindow      ------------------------------------------------------ -->
-<div id="show">
+  <!--    popupwindow      ------------------------------------------------------ -->
+  <div id="show">
     <!--popupwindow show here  -->
-</div>
-</div>
+  </div>
+  </div>
 
-<!--  -->
-<div class="container">
-	<div id="cards" class="row p-5"></div>
-</div>
+  <!--  -->
+  <div class="container">
+    <div id="cards" class="row p-5"></div>
+  </div>
 
-	 <div id="footer"></div>
+  <div id="footer"></div>
 
 
 </body>
+
 </html>
 <script type="module">
-	import getpopup from "./components/popup.js"
-	document.getElementById("show").innerHTML=getpopup();
+  import getpopup from "./components/popup.js"
+  document.getElementById("show").innerHTML = getpopup();
 
-	import footer from "./components/footer.js"
-	let container = document.querySelector("#footer");
-	container.innerHTML = footer();
+  import footer from "./components/footer.js"
+  let container = document.querySelector("#footer");
+  container.innerHTML = footer();
 
-	var response = await fetch('./database/lendsData.json')
+  var response = await fetch('./database/lendsData.json')
     .then(response => response.json())
     .then((data) => {
-        console.log(data)
-        return data
+      console.log(data)
+      return data
     })
-    
-    console.log(response)
 
-	var cards = document.getElementById("cards");
-	for (var i = 0; i < response.length; i++) {
-		cards.innerHTML += '<div class="col-lg-4 mb-4"><div class="card" style="width: 18rem;"><img class="card-img-top" src='+response[i].sportImage+'><div class="card-body"><h5 class="card-title">'+response[i].sportItemName+'</h5> <h6>Price: $'+response[i].payPerDay+'/day</h6><p class="card-text">Location: '+response[i].location+'<br> Event Start Date: '+response[i].startDate+'<br>Event End Date: '+response[i].endDate+'</p></div></div></div><br>';
-	}
+  console.log(response)
 
-
+  var cards = document.getElementById("cards");
+  for (var i = 0; i < response.length; i++) {
+    cards.innerHTML += '<div class="col-lg-4 mb-4"><div class="card" style="width: 18rem;"><img class="card-img-top" src=' + response[i].sportImage + '><div class="card-body"><h5 class="card-title">' + response[i].sportItemName + '</h5> <h6>Price: $' + response[i].payPerDay + '/day</h6><p class="card-text">Location: ' + response[i].location + '<br> Event Start Date: ' + response[i].startDate + '<br>Event End Date: ' + response[i].endDate + '</p></div></div></div><br>';
+  }
 
 
-	//  popupstartshere-----------------------
-// var modal = document.getElementById("myModal");
-// var modal1=document.getElementById("myModal1")
-
-// // Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
-// // btn.innerHTML= JSON.parse(localStorage.getItem("myLocal"))[0]|| "Login/Signup";
-// var submit=document.getElementById("btn");
-// var verify=document.getElementById("btn2")
-
-// Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-// When the user clicks the button, open the modal 
-// btn.onclick = function() {
-// 	if (btn.innerHTML=="Login/Signup"){
-// 		modal.style.display = "block";
-// 	}
-// 	else{
-// 		document.getElementById("dropdowndiv").style.visibility="visible";
-// 	}
-  
-
-// }
-
-
-
-// submit.onclick=function(){
-//     var mobnumber=document.querySelector("#mobnum").value;
-//     //console.log(mobnumber)
-//  if(mobnumber){
-//     modal.style.display = "none";
-//     modal1.style.display = "block";
-//  }
-//  else{
-//      alert("pls fill no.");
-//  }
-// }
-// verify.onclick = function(event) {
-//     event.preventDefault()
-//   var data=JSON.parse(localStorage.getItem("myLocal"))
-//   console.log(data[0]);
-//   btn.innerHTML=data[0]
-//   modal.style.display = "none";
-//   modal1.style.display = "none";
-
-// }
-
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//     modal1.style.display = "none";
-//   modal.style.display = "none";
- 
-// }
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-    
-//   }
-// }
-
-// document.getElementById("form").addEventListener("submit",myFn)
-// //   var arr=JSON.parse(localStorage.getItem("myLocal"))||[]
-
-// function myFn(event)
-// {var arr=[];
-// event.preventDefault()
-// var myobj=document.querySelector("#mobnum").value;
-// arr.push(myobj)
-// localStorage.setItem("myLocal",JSON.stringify(arr))
-// }
-
-// function find() {
-//     // let c= document.getElementById("cities").value
-//     // console.log(c)
-    
-//     let data = {
-//       city: document.getElementById("typesearch").value,
-     
-//     };
-
-//     let location = localStorage.setItem("name", JSON.stringify(data));
-//     window.location.href = "explore.html";
-//   }
-
-
-document.querySelector("#searchbtn").addEventListener("click",()=>{
+  document.querySelector("#searchbtn").addEventListener("click", () => {
     let data = {
       city: document.getElementById("typesearch").value,
-     
+
     };
 
     let location = localStorage.setItem("name", JSON.stringify(data));
     window.location.href = "explore.html";
-})
+  })
 
 
 
@@ -235,21 +150,24 @@ document.querySelector("#searchbtn").addEventListener("click",()=>{
 
 
 
-    </script>
+</script>
 <!-- script start -->
 <script type="module">
-    import navbar from "./components/navbar.js"
-    import footer from "./components/footer.js"
+  import navbar from "./components/navbar.js"
+  import footer from "./components/footer.js"
 
-    let container = document.querySelector("#footer");
-    container.innerHTML = footer();
+  let container = document.querySelector("#footer");
+  container.innerHTML = footer();
 
-    let navbar_container = document.getElementById("navbar_container");
-    navbar_container.innerHTML = navbar();
+  let navbar_container = document.getElementById("navbar_container");
+  navbar_container.innerHTML = navbar();
 
 </script>
 <!-- script end -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

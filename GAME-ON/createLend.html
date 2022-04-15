@@ -1,147 +1,153 @@
-
 <html>
-    <head>
-      <link rel="stylesheet" href="./css/explore.css">
-      <link rel="stylesheet" href="./css/popup.css">
-      <link rel="stylesheet" href="./css/">
-      <link rel="stylesheet" href="./styles/footer.css">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   
- 
-    </head>
-    <body>
-      <div id="explorenavbar" style="height: 50px; margin-bottom: 50px;">
-        <div id="logodiv" >
-          <a href="index.html">
-            <img id="logo" src="https://playo-website.imgix.net/company/logo1.png?auto=compress,format" alt="playo logo" style="margin-top: 7px;">
-            </a>
-        </div>
-        <div id="nav2div"> 
-        
-          <p id="myBtn" class=""><a href="/GAME-ON/bookVenue.html">Book Venues &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-        
-        </div>
-    
-        <div id="nav3div"> 
-        
-          <p id="myBtn" class=""><a href="/GAME-ON/blog.html">Blog &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-        
-        </div>
-        <div id="nav4div"> 
-        
-          <p id="myBtn" class=""><a href="/GAME-ON/activities.html">Activities &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
-        
-        </div>
-    
-        <div id="nav5div"> 
-        
-          <p id="myBtn" class=""><a href="/GAME-ON/lends.html">Lend</a></p>
-        
-        </div>
-    
-        </div>
-        <div class="container">
-          <div class="row pt-4 p-5" >
-            <div class="col-lg-3">
 
+<head>
+  <link rel="stylesheet" href="./css/explore.css">
+  <link rel="stylesheet" href="./css/popup.css">
+  <link rel="stylesheet" href="./css/">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <div id="explorenavbar" style="height: 50px; margin-bottom: 50px;">
+    <div id="logodiv">
+      <a href="index.html">
+        <img id="logo" src="images/logo.png?auto=compress,format" alt="logo" style="margin-top: 7px;">
+      </a>
+    </div>
+    <div id="nav2div">
+
+      <p id="myBtn" class=""><a href="bookVenue.html">Book Venues &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+
+    </div>
+
+    <div id="nav3div">
+
+      <p id="myBtn" class=""><a href="blog.html">Blog &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+
+    </div>
+    <div id="nav4div">
+
+      <p id="myBtn" class=""><a href="activities.html">Activities &nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+
+    </div>
+
+    <div id="nav5div">
+
+      <p id="myBtn" class=""><a href="lends.html">Lend</a></p>
+
+    </div>
+
+  </div>
+  <div class="container">
+    <div class="row pt-4 p-5">
+      <div class="col-lg-3">
+
+      </div>
+      <div class="col-lg-6">
+        <h3 class="text-center">Lend Item</h3>
+        <form class="form-inline">
+          <div class="row text-center" style="background-color: #f2f2f2;">
+
+            <div class="col-lg-12 p-2">
+              <div class="dropdown">
+                <label>Location </label>
+                <select class="form-control" name="location" id="location" style="width: 50%;">
+
+                  <option value="Dallas">Dallas</option>
+                  <option value="Kansas City">Kansas City</option>
+                  <option value="Overland Park">Overland Park</option>
+                </select>
+              </div>
             </div>
-            <div class="col-lg-6">
-              <h3 class="text-center">Lend Item</h3>
-              <form  class="form-inline">
-                <div class="row text-center" style="background-color: #f2f2f2;">
-             
-                  <div class="col-lg-12 p-2">
-                    <div class="dropdown">
-                      <label>Location </label>
-                      <select class="form-control" name="location" id="location" style="width: 50%;">
-                     
-                          <option  value="Dallas">Dallas</option>
-                          <option  value="Kansas City">Kansas City</option>
-                          <option  value="Overland Park">Overland Park</option>
-                      </select>
-                    </div>
-                    </div> 
-          
-             
-                    <div class="col-lg-12 p-2">
-                      <div class="dropdown">
-                        <label>Sport Item </label>
-                        <select class="form-control" name="sportItemName" id="sportItemName" style="width: 50%;">
-                            <option  value="Balls">Balls</option>
-                            <option  value="Wickets and bases">Wickets and bases</option>
-                            <option  value="Racquets">Racquets</option>
-                            <option  value="Cricket Nets">Cricket Nets</option>
-                            <option  value="Sneakers">Sneakers</option>
-                            <option  value="Cricket Bat">Cricket Bat</option>
-                        </select>
-                      </div>
-                      </div> 
 
 
-                  <!-- <div class="col">
+            <div class="col-lg-12 p-2">
+              <div class="dropdown">
+                <label>Sport Item </label>
+                <select class="form-control" name="sportItemName" id="sportItemName" style="width: 50%;">
+                  <option value="Balls">Balls</option>
+                  <option value="Wickets and bases">Wickets and bases</option>
+                  <option value="Racquets">Racquets</option>
+                  <option value="Cricket Nets">Cricket Nets</option>
+                  <option value="Sneakers">Sneakers</option>
+                  <option value="Cricket Bat">Cricket Bat</option>
+                </select>
+              </div>
+            </div>
+
+
+            <!-- <div class="col">
                     <label > Sport Item Name</label> 
                     <input type="text" id="sportItemName" class="form-control"  name="myform.eventName" placeholder="Sport Item Name">
                   </div> -->
-                  <div class="col-lg-12 p-2">
-                    <input type="text" id="payPerDay" class="form-control" name="myform.eventDate" placeholder="Pay Per Hour($)" style="width: 50%;">
-                  </div>
-                  <div class="col-lg-12 p-2">
-                    <label>Start Date</label>
-                    <input type="date" id="startDate" class="form-control"  name="myform.eventTime" placeholder="Start Date" style="width: 50%;">
-                  </div>
-                  <div class="col-lg-12 p-2">
-                    <label>End Date</label>
-                    <input type="date" id="endDate" class="form-control"  name="myform.endDate" placeholder="End Date" style="width: 50%;">
-                  </div>
-                  <div class="col-lg-12 p-2">
-                    <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
-                  </div>
-            
-                </div>
+            <div class="col-lg-12 p-2">
+              <input type="text" id="payPerDay" class="form-control" name="myform.eventDate"
+                placeholder="Pay Per Hour($)" style="width: 50%;">
+            </div>
+            <div class="col-lg-12 p-2">
+              <label>Start Date</label>
+              <input type="date" id="startDate" class="form-control" name="myform.eventTime" placeholder="Start Date"
+                style="width: 50%;">
+            </div>
+            <div class="col-lg-12 p-2">
+              <label>End Date</label>
+              <input type="date" id="endDate" class="form-control" name="myform.endDate" placeholder="End Date"
+                style="width: 50%;">
+            </div>
+            <div class="col-lg-12 p-2">
+              <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+            </div>
 
-          
-              </form>
-       
-            </div>
-            <div class="col-lg-3"></div>
-            </div>
-        
- 
-            </div>
-        
           </div>
-          <script>
-              function submitForm(){
-                  var location = document.getElementById("location").value;
-                  var startDate =  document.getElementById("startDate").value;
-                  var payPerDay =  document.getElementById("payPerDay").value;
-                  var endDate =  document.getElementById("endDate").value;
-                  var sportItemName =  document.getElementById("sportItemName").value;
-                  var namesMap = {
-                    "Balls":"https://i0.wp.com/www.bioparksociety.org/store/wp-content/uploads/2020/03/Tennis-balls.jpg?fit=694%2C644&ssl=1",
-                    "Cricket Nets":"https://i.pinimg.com/550x/c6/92/d0/c692d0a766d03f8c02e27585a83a96bd.jpg",
-                    "Wickets and bases":"https://m.media-amazon.com/images/I/91QSHtFKp6L._AC_SL1500_.jpg",
-                    "Racquets":"https://www.verywellfit.com/thmb/UAkqgM0LJdQ0T9_-lmHMMuUzYUA=/900x0/filters:no_upscale():max_bytes(150000):strip_icc()/wilsonkidsracquet-b66e3a42a1ca41ce9b73b307d00a9a09.jpeg",
-                    "Sneakers":"https://media.gq.com/photos/60d2192a430ae505071c3804/master/w_2571,h_3600,c_limit/SNEAKER_GUIDE_JORDANS_1.jpg",
-                    "Cricket Bat":"https://res-3.cloudinary.com/s247/image/upload/c_pad,dpr_1.0,f_auto,q_auto/media/catalog/product/w/o/woodworm-cricket-ib-235-cricket-bat-main_1__1_1_1_1_1_1.png"
-                  }
-                  var final = {
-                      "location":location,
-                      "startDate":startDate,
-                      "endDate":endDate,
-                      "payPerDay":payPerDay,
-                      "sportItemName":sportItemName,
-                      "sportImage":namesMap[sportItemName]
-                  }
-                  console.log(final)
-                  let xhr = new XMLHttpRequest()
-    
-                    xhr.open('POST', 'http://localhost:5001/api/activity/createLend', true)
-                    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-                    xhr.send(JSON.stringify(final));
 
-                    window.location.href="http://127.0.0.1:5502/lends.html"
-              }
-          </script>
-    </body>
+
+        </form>
+
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+
+
+  </div>
+
+  </div>
+  <script>
+    function submitForm() {
+      var location = document.getElementById("location").value;
+      var startDate = document.getElementById("startDate").value;
+      var payPerDay = document.getElementById("payPerDay").value;
+      var endDate = document.getElementById("endDate").value;
+      var sportItemName = document.getElementById("sportItemName").value;
+      var namesMap = {
+        "Balls": "https://i0.wp.com/www.bioparksociety.org/store/wp-content/uploads/2020/03/Tennis-balls.jpg?fit=694%2C644&ssl=1",
+        "Cricket Nets": "https://i.pinimg.com/550x/c6/92/d0/c692d0a766d03f8c02e27585a83a96bd.jpg",
+        "Wickets and bases": "https://m.media-amazon.com/images/I/91QSHtFKp6L._AC_SL1500_.jpg",
+        "Racquets": "https://www.verywellfit.com/thmb/UAkqgM0LJdQ0T9_-lmHMMuUzYUA=/900x0/filters:no_upscale():max_bytes(150000):strip_icc()/wilsonkidsracquet-b66e3a42a1ca41ce9b73b307d00a9a09.jpeg",
+        "Sneakers": "https://media.gq.com/photos/60d2192a430ae505071c3804/master/w_2571,h_3600,c_limit/SNEAKER_GUIDE_JORDANS_1.jpg",
+        "Cricket Bat": "https://res-3.cloudinary.com/s247/image/upload/c_pad,dpr_1.0,f_auto,q_auto/media/catalog/product/w/o/woodworm-cricket-ib-235-cricket-bat-main_1__1_1_1_1_1_1.png"
+      }
+      var final = {
+        "location": location,
+        "startDate": startDate,
+        "endDate": endDate,
+        "payPerDay": payPerDay,
+        "sportItemName": sportItemName,
+        "sportImage": namesMap[sportItemName]
+      }
+      console.log(final)
+      let xhr = new XMLHttpRequest()
+
+      xhr.open('POST', 'http://localhost:5001/api/activity/createLend', true)
+      xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+      xhr.send(JSON.stringify(final));
+
+      window.location.href = "http://127.0.0.1:5502/lends.html"
+    }
+  </script>
+</body>
+
 </html>
