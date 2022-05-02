@@ -1,14 +1,14 @@
-function navbarsidebar(){
+function navbarsidebar() {
 
     return ` <div id="navbox">
 
     <div id="navbox_img">
-    <a href="index.html">  <img src="images/logo.png" height="100%" width="100%"/></a>
+    <a href="index.html">  <img src="./images/logo" width="52%" height="60%"/></a>
     </div>
     
     <div id="navdiv">
     <ul type="none">
-        <li class="offer"><a href="#">Offer</a></li>
+       
         <li class="offer"><a href="#">Partner with us</a></li>
 
         <li>

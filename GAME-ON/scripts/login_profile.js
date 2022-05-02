@@ -1,11 +1,11 @@
-function profile(){
+function profile() {
     return ` <div id="profile_img"><img src="images/user_blank.png" /></div>
     
     <div id="inputbox"> <input  class="firstname" type="text" placeholder="First Name*">
      <input  class="lastname" type="text" placeholder="Last Name*" >
      <div id="logo">
-         <p id="mobile">IND</p>
-         <p id="pp1">+91</p>
+         <p id="mobile">USA</p>
+         <p id="pp1">+1</p>
      <i id="pp2" class="fas fa-sort-down"></i>
          <p id="pp3">9021553726</p>
      </div>
@@ -17,7 +17,7 @@ function profile(){
     </div>
     
     </div>`
-    
-    }
-    
-    export default profile
+
+}
+
+export default profile

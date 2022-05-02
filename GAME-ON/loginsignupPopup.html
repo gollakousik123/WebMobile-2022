@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./styles/loginsignupPopup.css">
     <title>login signup Popup</title>
 </head>
+
 <body>
     <button id="open">
         click me please
@@ -31,15 +34,16 @@
                         <div class="countrySpan">
                             <span>
                                 <div class="selectCallingCode">
-                                    <span class="alpha3Code">IND</span>
-                                    <span class="callingCode">+91</span>
+                                    <span class="alpha3Code">USA</span>
+                                    <span class="callingCode">+ 1</span>
                                     <img class="countryDrop" src="images/selectCountry.png" alt="dropdown">
                                 </div>
                             </span>
                         </div>
                     </div>
                     <span class="sc-htpNat djjRJa">
-                        <input class="user_phone_input sc-bwzfXH ettcJE" type="number" placeholder="Mobile Number *" value="">
+                        <input class="user_phone_input sc-bwzfXH ettcJE" type="number" placeholder="Mobile Number *"
+                            value="">
                         <hr class="sc-bxivhb iAJoKA">
                     </span>
                 </div>
@@ -50,6 +54,7 @@
         </div>
     </div>
 </body>
+
 </html>
 
 <script>
@@ -57,18 +62,18 @@
     const modal_container = document.getElementById("modal_container");
     const close = document.getElementById("close");
 
-    open.addEventListener("click", ()=>{
+    open.addEventListener("click", () => {
         modal_container.classList.add("show")
     })
 
-    close.addEventListener("click", ()=>{
+    close.addEventListener("click", () => {
         modal_container.classList.remove("show")
     })
-    
+
     $(document).ready(function () {
-       $("#<%=#open.ClientID%>").click(function () {
-           $("#modal_container").slideDown(5000);
-       });
-   });
+        $("#<%=#open.ClientID%>").click(function () {
+            $("#modal_container").slideDown(5000);
+        });
+    });
 
 </script>

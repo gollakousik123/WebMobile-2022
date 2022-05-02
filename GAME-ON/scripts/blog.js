@@ -175,7 +175,7 @@ document.querySelector("#search").addEventListener('keypress', (event) => {
 
         console.log("test")
         let search_key = "b140754e118c4b63a8e580772d4446a1";
-        let search_link = `https://newsapi.org/v2/everything?q=${value}&from=2022-03-13&sortBy=popularity&pageSize=10&language=en&apiKey=${search_key}`;
+        let search_link = `https://newsapi.org/v2/everything?q=${value}&from=2022-04-13&sortBy=popularity&pageSize=10&language=en&apiKey=${search_key}`;
         let response_search = apiCall(search_link);
         response_search.then((res) => {
             console.log(res.articles);
