@@ -43,10 +43,7 @@ fetch(quoteUrl, {
 
 
 
-document.querySelector("#first-blog").addEventListener("click", () => {
 
-    window.open("https://blog.playo.co/humansofplayo-how-to-submit-a-story/", '_blank');
-})
 
 document.querySelector("#sec-blog").addEventListener("click", () => {
 
