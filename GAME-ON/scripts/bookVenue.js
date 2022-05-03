@@ -358,7 +358,7 @@ function plus() {
     updatedvalue.innerHTML = count + " " + "hr";
 
     costvalue = count * 22;
-    cost.innerHTML = "Total cost for these booking - INR" + " " + costvalue;
+    cost.innerHTML = "Total cost for these booking - USD" + " " + costvalue;
 
     return costvalue;
 }
@@ -380,7 +380,7 @@ function minus(costvalue) {
     let updatedvalue = document.getElementById("timevalue");
     updatedvalue.innerHTML = count + " " + "hr";
 
-    cost.innerHTML = "Total cost for these booking - INR" + " " + costvalue;
+    cost.innerHTML = "Total cost for these booking - USD" + " " + costvalue;
     //let presentValue = costvalue;
 
 
@@ -393,7 +393,7 @@ function court1() {
     court1.style.backgroundColor = "#4daa0b";
     court1.style.color = "white";
 
-    cost.innerHTML = "Total cost for these booking - INR" + " " + 2200 * count;
+    cost.innerHTML = "Total cost for these booking - USD" + " " + 22 * count;
 
 }
 
@@ -402,7 +402,7 @@ function court2() {
     court2.style.backgroundColor = "#4daa0b";
     court2.style.color = "white";
 
-    cost.innerHTML = "Total cost for these booking - INR" + " " + 2200 * count;
+    cost.innerHTML = "Total cost for these booking - USD" + " " + 2200 * count;
 }
 
 function court3() {
@@ -410,7 +410,7 @@ function court3() {
     court3.style.backgroundColor = "#4daa0b";
     court3.style.color = "white";
 
-    cost.innerHTML = "Total cost for these booking - INR" + " " + 2200 * count;
+    cost.innerHTML = "Total cost for these booking - USD" + " " + 2200 * count;
 }
 
 function court4() {
@@ -496,7 +496,7 @@ function addtocart() {
     var costimg = document.createElement("img");
     costimg.src = "https://playo-website.gumlet.net/icons/money.svg";
     var costname = document.createElement("p");
-    costname.textContent = " INR " + " " + count * 2200;
+    costname.textContent = " USD " + " " + count * 22;
     costdiv.append(costimg, costname);
 
     // these is for hr line under cost div
