@@ -11,7 +11,7 @@ server.listen(PORT, () => console.log(`JSON Server is running on port ${PORT}`))
 
 const express = require("express");
 const mongoose = require("mongoose");
-const users = require("./scripts/loginRoutes");
+const users = require("./scripts/logUSDoutes");
 const bodyParser = require("body-parser");
 var cors = require("cors");
 const corsOptions = {

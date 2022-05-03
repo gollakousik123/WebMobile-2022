@@ -71,7 +71,7 @@ function fetchNews() {
     let apiKey_blog = "04632fefaf774c0e99a5884e0fd734b2";
     let bloglink = `https://newsapi.org/v2/top-headlines?country=in&category=sports&pageSize=10&apiKey=${apiKey_blog}`;
     let response = apiCall(bloglink);
-    response.then((res) => {
+    response.then((res) => {    
         console.log(res.articles);
         let appendlocation = document.querySelector(".dynamic-news");
         appendNews(res.articles, appendlocation);
