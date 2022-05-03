@@ -4,4 +4,24 @@ Team Members(Project Group-16):
  Mamjala Manisha - 16307995
  Chenna Srinivas - 16307984
  
- use 
+ Use npm start or node server.js to start the application 
+Hard Coded details for OTP Section due to cors exception
+Please give 10 digit mobile number in login/signup pop up.
+OTP - 123456
+
+Website flow for User
+Home page (index.html)
+
+Book Venues (To book any venues)
+
+Activities section (Search any activities/ events in locations)
+
+Blog Section (Search blogs and news)
+
+Contact us (Reach out to us)
+
+🛠 Administrator Section
+Add product page (Add products for admin in activities data base)
+
+Thank you note
+Thank you all who is giving precious time to visit our little creative project which is made with lot of efforts.
